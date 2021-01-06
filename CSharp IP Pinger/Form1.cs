@@ -35,9 +35,6 @@ namespace CSharp_IP_Pinger
             }
             
         }
-        public static void Handle(string ip)
-        {
-            
-        }
+      
     }
 }
