@@ -26,12 +26,16 @@ namespace CSharp_IP_Pinger
             try
             {
                 PingReply reply = ping.Send(textBox1.Text, 1000);
-                MessageBox.Show(reply.Status.ToString(), "IP Valid, Pinging", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(reply.Status.ToString() + ", Server is active", "IP Valid, Pinging", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (ArgumentNullException)
             {
-                MessageBox.Show("NOT VALID", "IP Not Valid, ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No Input!", "IP Not Valid, ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (PingException)
+            {
+                MessageBox.Show("Server Is Not active", "IP Not Valid, ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
